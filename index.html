@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluminio y Vidrio Rivas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="hero-section">
+        <h1>ALUMINIO Y VIDRIO RIVAS</h1>
+    </header>
+
+    <section class="catalog-section">
+        <h2>Catálogo</h2>
+        <nav class="category-nav">
+            <button class="category-button" data-category="ventanas">Ventanas</button>
+            <button class="category-button" data-category="puertas">Puertas</button>
+            <button class="category-button" data-category="vitrinas">Vitrinas</button>
+            <button class="category-button" data-category="domos">Domos</button>
+            <button class="category-button" data-category="zaguanes">Zaguánes</button>
+            <button class="category-button" data-category="canceles">Canceles</button>
+        </nav>
+
+        <div class="gallery-container">
+            <div id="ventanas" class="category-gallery active">
+                <img src="images/ventana1.jpg" alt="Ventana de aluminio 1">
+                <img src="images/ventana2.jpg" alt="Ventana de aluminio 2">
+                <img src="images/ventana3.jpg" alt="Ventana de aluminio 3">
+                <img src="images/ventana4.jpg" alt="Ventana de aluminio 4">
+                <img src="images/ventana5.jpg" alt="Ventana de aluminio 5">
+            </div>
+
+            <div id="puertas" class="category-gallery">
+                <img src="images/puerta1.jpg" alt="Puerta de aluminio 1">
+                <img src="images/puerta2.jpg" alt="Puerta de aluminio 2">
+                <img src="images/puerta3.jpg" alt="Puerta de aluminio 3">
+                <img src="images/puerta4.jpg" alt="Puerta de aluminio 4">
+                <img src="images/puerta5.jpg" alt="Puerta de aluminio 5">
+            </div>
+            
+            <div id="vitrinas" class="category-gallery">
+                <img src="images/vitrina1.jpg" alt="Vitrina de aluminio y vidrio 1">
+                <img src="images/vitrina2.jpg" alt="Vitrina de aluminio y vidrio 2">
+                <img src="images/vitrina3.jpg" alt="Vitrina de aluminio y vidrio 3">
+                <img src="images/vitrina4.jpg" alt="Vitrina de aluminio y vidrio 4">
+                <img src="images/vitrina5.jpg" alt="Vitrina de aluminio y vidrio 5">
+            </div>
+
+            <div id="domos" class="category-gallery">
+                <img src="images/domo1.jpg" alt="Domo de vidrio 1">
+                <img src="images/domo2.jpg" alt="Domo de vidrio 2">
+                <img src="images/domo3.jpg" alt="Domo de vidrio 3">
+                <img src="images/domo4.jpg" alt="Domo de vidrio 4">
+                <img src="images/domo5.jpg" alt="Domo de vidrio 5">
+            </div>
+
+            <div id="zaguanes" class="category-gallery">
+                <img src="images/zaguane1.jpg" alt="Zaguán de aluminio 1">
+                <img src="images/zaguane2.jpg" alt="Zaguán de aluminio 2">
+                <img src="images/zaguane3.jpg" alt="Zaguán de aluminio 3">
+                <img src="images/zaguane4.jpg" alt="Zaguán de aluminio 4">
+                <img src="images/zaguane5.jpg" alt="Zaguán de aluminio 5">
+            </div>
+
+            <div id="canceles" class="category-gallery">
+                <img src="images/cancel1.jpg" alt="Cancel de baño 1">
+                <img src="images/cancel2.jpg" alt="Cancel de baño 2">
+                <img src="images/cancel3.jpg" alt="Cancel de baño 3">
+                <img src="images/cancel4.jpg" alt="Cancel de baño 4">
+                <img src="images/cancel5.jpg" alt="Cancel de baño 5">
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+    <h2>Contacto</h2>
+    <p><strong>Facebook:</strong> <a href="https://www.facebook.com/share/1M29SX5Mzk/" target="_blank">Página de Facebook</a></p>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/525511871311" target="_blank">5511871311</a></p>
+    <p><strong>Teléfono:</strong> <a href="tel:+525511871311">5511871311</a></p>
+</section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.category-button');
+            const galleries = document.querySelectorAll('.category-gallery');
+
+            // Mostrar la primera galería por defecto al cargar
+            const firstButton = document.querySelector('.category-button');
+            if (firstButton) {
+                firstButton.classList.add('active'); // Marca el primer botón como activo
+                const firstCategory = firstButton.dataset.category;
+                const firstGallery = document.getElementById(firstCategory);
+                if (firstGallery) {
+                    firstGallery.classList.add('active'); // Muestra la primera galería
+                }
+            }
+
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remover 'active' de todos los botones y galerías
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    galleries.forEach(gallery => gallery.classList.remove('active'));
+
+                    // Agregar 'active' al botón clickeado
+                    button.classList.add('active');
+
+                    // Mostrar la galería correspondiente
+                    const category = button.dataset.category;
+                    const targetGallery = document.getElementById(category);
+                    if (targetGallery) {
+                        targetGallery.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
